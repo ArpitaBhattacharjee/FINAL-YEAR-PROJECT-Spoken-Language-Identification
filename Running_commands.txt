@@ -1,0 +1,20 @@
+for training:
+python splidnn.py train -e 5 archive.zip  
+
+
+for inference:
+python splidnn.py infer --model training/model_epoch16 Check/outcommonh_voice(1).mp3
+
+
+
+for clippimg audio using ffmpeg:
+ffmpeg -ss 0 -t 3 -i HI_(1).mp3 -acodec copy out1.mp3                [one at a time]
+
+
+for %a in ("*.mp3") do ffmpeg -ss 0 -t 3 -i "%a" -acodec copy "out%~na.mp3"    [convert all at once]
+
+
+for sample rate:
+ffmpeg -i BA_(1).mp3 -ar 32768 sampledBA_(1).mp3
+
+changed to sample rate*3 from sample rate*10
